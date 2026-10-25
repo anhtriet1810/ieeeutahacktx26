@@ -1,0 +1,34 @@
+[gd_scene format=4 uid="uid://cnv1bavih128"]
+
+[ext_resource type="Texture2D" uid="uid://cilx7gwpjwbkw" path="res://assets/game/garden.png" id="1_jbqk2"]
+[ext_resource type="PackedScene" uid="uid://bjsctdb0abwt4" path="res://assets/Animation/fairyEnemyRed.tscn" id="2_bemw4"]
+[ext_resource type="PackedScene" uid="uid://c0wtgoiotqmau" path="res://assets/Animation/fairyEnemyYellow.tscn" id="2_xip7w"]
+[ext_resource type="PackedScene" uid="uid://ba7faa2xoj7fg" path="res://assets/Animation/fairyEnemyBlue.tscn" id="3_jbqk2"]
+[ext_resource type="PackedScene" uid="uid://bxhi58v6bdo5g" path="res://assets/game/bubble/bubbleBullet_Blue.tscn" id="3_r0rmy"]
+[ext_resource type="PackedScene" uid="uid://c64gqf8hhp0ai" path="res://assets/Animation/Wizard.tscn" id="5_xip7w"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_r0rmy"]
+scenes/1/scene = ExtResource("2_bemw4")
+scenes/2/scene = ExtResource("2_xip7w")
+scenes/3/scene = ExtResource("2_bemw4")
+scenes/4/scene = ExtResource("3_jbqk2")
+
+[sub_resource type="TileSet" id="TileSet_26for"]
+sources/1 = SubResource("TileSetScenesCollectionSource_r0rmy")
+
+[node name="Game" type="Node2D" unique_id=1103317887]
+
+[node name="Garden" type="Sprite2D" parent="." unique_id=1480445562]
+position = Vector2(956, 514)
+scale = Vector2(5.6722226, 5.6722226)
+texture = ExtResource("1_jbqk2")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=997000227]
+tile_map_data = PackedByteArray("AAAoAAcAAQAAAAAAAgA0AAcAAQAAAAAABABBAAcAAQAAAAAAAgBPAAcAAQAAAAAAAQAvABIAAQAAAAAAAQBJABIAAQAAAAAAAgA7ABIAAQAAAAAABAA=")
+tile_set = SubResource("TileSet_26for")
+
+[node name="Wizard" parent="." unique_id=1002431622 instance=ExtResource("5_xip7w")]
+position = Vector2(924, 779)
+
+[node name="BubbleBulletBlue" parent="." unique_id=1872702400 instance=ExtResource("3_r0rmy")]
+position = Vector2(957, 626)

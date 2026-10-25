@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c64gqf8hhp0ai"]
+
+[ext_resource type="Texture2D" uid="uid://bumtbu3vejdgs" path="res://assets/game/Wiz.png" id="1_2skr3"]
+
+[sub_resource type="Animation" id="Animation_2skr3"]
+length = 1.5666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Wiz:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dpy67"]
+resource_name = "Wizard"
+length = 2.6666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Wiz:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.69, 1.41, 2.12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_krknr"]
+_data = {
+&"RESET": SubResource("Animation_2skr3"),
+&"Wizard": SubResource("Animation_dpy67")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwv3l"]
+radius = 58.549126
+
+[node name="Wizard" type="Node2D" unique_id=1002431622]
+position = Vector2(753, 614)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=593037561]
+
+[node name="Wiz" type="Sprite2D" parent="CharacterBody2D" unique_id=1094090425]
+position = Vector2(-1.9999771, -104.99999)
+scale = Vector2(6.625001, 6.625001)
+texture = ExtResource("1_2skr3")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1149704560]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_krknr")
+autoplay = &"Wizard"
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1601512600]
+position = Vector2(21, -54)
+shape = SubResource("CircleShape2D_rwv3l")

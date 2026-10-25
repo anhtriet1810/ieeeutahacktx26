@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dblcs0qcetlvj"]
+
+[ext_resource type="Texture2D" uid="uid://bhknhx71pnuuf" path="res://assets/game/bubble/yellow-pro-bub.png" id="1_p1pj8"]
+[ext_resource type="Script" uid="uid://dp0y10uvt20u2" path="res://Fairy_Feast/bulletTest.gd" id="2_c5jrm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwv3l"]
+radius = 8.0
+
+[node name="BubbleBulletBlue" type="Node2D" unique_id=1872702400]
+
+[node name="BlueProBub" type="Sprite2D" parent="." unique_id=844837759]
+scale = Vector2(4, 4)
+texture = ExtResource("1_p1pj8")
+
+[node name="Area2D" type="Area2D" parent="BlueProBub" unique_id=79543638]
+script = ExtResource("2_c5jrm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueProBub/Area2D" unique_id=392963063]
+shape = SubResource("CircleShape2D_rwv3l")
+debug_color = Color(0.5039642, 0.58035237, 3.85046e-07, 0.41960785)
